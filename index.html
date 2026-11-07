@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KENT — форма зворотного зв'язку з перевіркою даних на стороні клієнта (лабораторна робота №9).">
+    <title>KENT — зворотний зв'язок</title>
+    <link rel="icon" type="image/webp" href="assets/images/logo-kent.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <!-- Tailwind CSS 3.4, зібрано через CLI (tailwind.config.js) -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-kent-bg font-sans text-white antialiased">
+
+<a href="#feedback-form" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand-600 focus:px-4 focus:py-2">Перейти до форми</a>
+
+<header class="border-b border-kent-border bg-kent-bg">
+    <div class="mx-auto flex h-16 max-w-5xl items-center px-4 sm:px-6 lg:px-8">
+        <a href="#" class="flex min-h-11 items-center gap-2 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500" aria-label="KENT — головна">
+            <img src="assets/images/logo-kent.webp" alt="Логотип KENT" width="40" height="40" class="h-10 w-10 rounded-lg bg-white object-cover">
+            <span class="text-xl font-extrabold tracking-wide">KE<span class="text-brand-500">N</span>T</span>
+        </a>
+    </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-4 py-10 sm:px-6 md:py-16 lg:px-8">
+    <h1 class="text-2xl font-extrabold sm:text-3xl lg:text-4xl">Зворотний зв'язок</h1>
+    <p class="mt-2 max-w-2xl text-sm text-neutral-300 md:text-base">Напишіть нам — відповімо протягом 2 годин у робочий час. Усі поля обов'язкові.</p>
+
+    <form id="feedback-form" novalidate aria-label="Форма зворотного зв'язку"
+          class="mt-8 grid grid-cols-1 gap-5 rounded-xl border border-kent-border bg-kent-card p-4 sm:p-6 md:grid-cols-2 md:p-8">
+
+        <div>
+            <label for="name" class="mb-1.5 block text-sm font-medium">Ім'я <abbr title="обов'язкове поле" class="text-brand-400 no-underline">*</abbr></label>
+            <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="nameError" aria-invalid="false"
+                   class="min-h-11 w-full rounded-lg border border-kent-border bg-kent-bg px-4 text-base text-white transition-colors duration-200 hover:border-neutral-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+            <p id="nameError" class="mt-1.5 min-h-5 invisible text-sm text-red-400" role="alert"></p>
+        </div>
+
+        <div>
+            <label for="email" class="mb-1.5 block text-sm font-medium">Електронна пошта <abbr title="обов'язкове поле" class="text-brand-400 no-underline">*</abbr></label>
+            <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required aria-describedby="emailError" aria-invalid="false"
+                   class="min-h-11 w-full rounded-lg border border-kent-border bg-kent-bg px-4 text-base text-white transition-colors duration-200 hover:border-neutral-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+            <p id="emailError" class="mt-1.5 min-h-5 invisible text-sm text-red-400" role="alert"></p>
+        </div>
+
+        <div class="md:col-span-2">
+            <label for="phone" class="mb-1.5 block text-sm font-medium">Телефон <abbr title="обов'язкове поле" class="text-brand-400 no-underline">*</abbr></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="phoneHint phoneError" aria-invalid="false"
+                   class="min-h-11 w-full rounded-lg border border-kent-border bg-kent-bg px-4 text-base text-white transition-colors duration-200 hover:border-neutral-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+            <small id="phoneHint" class="mt-1 block text-xs text-neutral-400">Формат: +380XXXXXXXXX (без пробілів)</small>
+            <p id="phoneError" class="mt-1.5 min-h-5 invisible text-sm text-red-400" role="alert"></p>
+        </div>
+
+        <div class="md:col-span-2">
+            <label for="message" class="mb-1.5 block text-sm font-medium">Повідомлення <abbr title="обов'язкове поле" class="text-brand-400 no-underline">*</abbr></label>
+            <textarea id="message" name="message" rows="5" maxlength="500" required aria-describedby="messageHint messageError" aria-invalid="false"
+                      class="min-h-32 w-full resize-y rounded-lg border border-kent-border bg-kent-bg p-4 text-base text-white transition-colors duration-200 hover:border-neutral-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50"></textarea>
+            <small id="messageHint" class="mt-1 block text-xs text-neutral-400">Від 10 до 500 символів</small>
+            <p id="messageError" class="mt-1.5 min-h-5 invisible text-sm text-red-400" role="alert"></p>
+        </div>
+
+        <div class="md:col-span-2">
+            <label for="agreement" class="flex min-h-11 cursor-pointer items-center gap-3 text-sm text-neutral-300">
+                <input type="checkbox" id="agreement" name="agreement" required aria-describedby="agreementError" aria-invalid="false"
+                       class="h-5 w-5 shrink-0 cursor-pointer accent-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500">
+                Я погоджуюсь на обробку персональних даних
+            </label>
+            <p id="agreementError" class="mt-1 min-h-5 invisible text-sm text-red-400" role="alert"></p>
+        </div>
+
+        <div class="md:col-span-2">
+            <button type="submit" id="submitBtn"
+                    class="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-brand-600 px-8 text-base font-semibold transition duration-200 hover:bg-brand-700 active:scale-95 sm:w-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500">
+                Надіслати повідомлення
+            </button>
+        </div>
+    </form>
+</main>
+
+<footer class="border-t border-kent-border bg-black px-4 py-8 text-sm text-neutral-400 sm:px-6 lg:px-8">
+    <p class="mx-auto max-w-5xl">© 2026 KENT. Навчальний проєкт, лабораторна робота №9.</p>
+</footer>
+
+<!-- Модальне вікно успіху: відкривається лише після успішної валідації -->
+<div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4" aria-hidden="true">
+    <div role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText"
+         class="w-full max-w-md rounded-xl border border-kent-border bg-kent-card p-6 shadow-2xl">
+        <h2 id="modalTitle" class="text-xl font-bold">Дякуємо!</h2>
+        <p id="modalText" class="mt-2 text-neutral-300">Демонстрація успішної відправки: форму заповнено правильно. Дані нікуди не надсилались — серверної частини в цій роботі немає.</p>
+        <button type="button" id="modalClose"
+                class="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg bg-brand-600 px-6 font-semibold transition-colors duration-200 hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500">
+            Закрити
+        </button>
+    </div>
+</div>
+
+<script src="assets/js/validation.js"></script>
+</body>
+</html>
